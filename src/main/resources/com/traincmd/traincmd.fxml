@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.traincmd.Controller">
+   <children>
+      <AnchorPane prefHeight="401.0" prefWidth="162.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8),10,0,0,0); -fx-background-color: d6d6d6;">
+         <children>
+            <Label layoutX="15.0" prefHeight="73.0" prefWidth="132.0" text="TrainCMD">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="trainInfo" layoutY="83.0" prefHeight="316.0" prefWidth="162.0" style="-fx-background-color: #ffffff;" visible="false">
+         <children>
+            <Label fx:id="seatsLabel" layoutX="16.0" layoutY="127.0" text="Seats: 25/74" />
+            <Label fx:id="numLabel" layoutX="16.0" layoutY="93.0" prefHeight="17.0" prefWidth="95.0" text="№86" />
+            <Label fx:id="fromtoLabel" layoutX="14.0" layoutY="110.0" prefHeight="17.0" prefWidth="121.0" text="Lviv - Zaporizhia" />
+            <Label fx:id="carsLabel" layoutX="16.0" layoutY="143.0" prefHeight="17.0" prefWidth="121.0" text="Cars:14" />
+            <Label fx:id="luggageLabel" layoutX="16.0" layoutY="160.0" text="Luggage:18.5kg" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="mainMenu" layoutX="162.0" prefHeight="402.0" prefWidth="438.0" visible="false">
+         <children>
+            <Button layoutX="29.0" layoutY="95.0" mnemonicParsing="false" onAction="#onbtnSelTrainClicked" prefHeight="24.0" prefWidth="143.0" text="Вибрати поїзд" />
+            <Label layoutX="147.0" layoutY="14.0" prefHeight="32.0" prefWidth="144.0" text="Main menu">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <TableView fx:id="trainTable" layoutX="29.0" layoutY="130.0" prefHeight="256.0" prefWidth="395.0">
+              <columns>
+                <TableColumn fx:id="tnumcol" prefWidth="41.8077392578125" text="#" />
+                <TableColumn fx:id="tfromCol" prefWidth="168.9730682373047" text="From" />
+                  <TableColumn fx:id="ttoCol" prefWidth="184.65103149414062" text="To" />
+              </columns>
+            </TableView>
+            <Button fx:id="delTrainbtn" layoutX="266.0" layoutY="58.0" mnemonicParsing="false" onAction="#onbtnRmTrainClicked" prefHeight="24.0" prefWidth="143.0" text="Видалити поїзд" />
+            <Button layoutX="29.0" layoutY="58.0" mnemonicParsing="false" onAction="#onbtnAddTrainClicked" prefHeight="24.0" prefWidth="143.0" text="Добавити поїзд" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="trainMenu" layoutX="162.0" prefHeight="402.0" prefWidth="438.0" visible="false">
+         <children>
+            <Label layoutX="146.0" layoutY="14.0" prefHeight="32.0" prefWidth="145.0" text="Train Menu">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <TableView fx:id="carTable" layoutX="28.0" layoutY="131.0" prefHeight="256.0" prefWidth="395.0">
+               <columns>
+                  <TableColumn fx:id="cnumcol" prefWidth="30.48480224609375" text="#" />
+                  <TableColumn fx:id="cclasscol" prefWidth="55.74369812011719" text="Class" />
+                  <TableColumn fx:id="cconductorcol" prefWidth="211.65179443359375" text="Conductor" />
+                  <TableColumn fx:id="cpassengerscol" prefWidth="95.80954148846405" text="Passengers" />
+               </columns>
+            </TableView>
+            <Button fx:id="addCarbtn" layoutX="28.0" layoutY="59.0" mnemonicParsing="false" onAction="#onbtnAddCarClicked" prefHeight="24.0" prefWidth="143.0" text="Добавити вагон" />
+            <Button fx:id="rmCarbtn" layoutX="218.0" layoutY="95.0" mnemonicParsing="false" onAction="#onbtnRmCarClicked" prefHeight="24.0" prefWidth="121.0" text="Видалити вагон" />
+            <TextField fx:id="maxPass" layoutX="285.0" layoutY="59.0" prefHeight="24.0" prefWidth="30.0" />
+            <Label layoutX="273.0" layoutY="63.0" text="-&gt;" />
+            <Button fx:id="filterCarbtn" layoutX="323.0" layoutY="58.0" mnemonicParsing="false" onAction="#onfilterCarbtnClicked" prefHeight="24.0" prefWidth="96.0" text="Фільтрувати" />
+            <TextField fx:id="minPass" layoutX="243.0" layoutY="59.0" prefHeight="24.0" prefWidth="30.0" />
+            <Button fx:id="resCarbtn" layoutX="346.0" layoutY="95.0" mnemonicParsing="false" onAction="#onresCarbtnClick" prefHeight="24.0" prefWidth="73.0" text="Скинути" />
+            <Button fx:id="carsBackbtn" layoutX="28.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#onbtnCarBackClicked" prefHeight="24.0" prefWidth="37.0" text="&lt;-" />
+            <Button layoutX="28.0" layoutY="95.0" mnemonicParsing="false" onAction="#onchooseCarbtnClicked" prefHeight="24.0" prefWidth="144.0" text="Вибрати вагон" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addTrain" layoutX="162.0" layoutY="-1.0" prefHeight="402.0" prefWidth="438.0" visible="false">
+         <children>
+            <TextField fx:id="toField" layoutX="112.0" layoutY="189.0" prefHeight="24.0" prefWidth="192.0" promptText="Введіть кінцеву станцію" />
+            <TextField fx:id="fromField" layoutX="112.0" layoutY="153.0" prefHeight="24.0" prefWidth="191.0" promptText="Введіть початкову станцію" />
+            <TextField fx:id="numField" layoutX="112.0" layoutY="119.0" prefHeight="24.0" prefWidth="192.0" promptText="Введіть номер" />
+            <Button fx:id="submitTrainbtn" layoutX="112.0" layoutY="227.0" mnemonicParsing="false" onAction="#submitTrainbtnClicked" prefHeight="37.0" prefWidth="192.0" text="Додати поїзд" />
+            <Button layoutX="46.0" layoutY="50.0" mnemonicParsing="false" onAction="#oncancelTrainClicked" onMouseClicked="#onbtnCarBackClicked" prefHeight="24.0" prefWidth="37.0" text="&lt;-" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addCar" layoutX="162.0" layoutY="1.0" prefHeight="400.0" prefWidth="438.0" visible="false">
+         <children>
+            <TextField fx:id="carcondField" layoutX="111.0" layoutY="187.0" prefHeight="24.0" prefWidth="192.0" promptText="Введіть ПІБ кондуктора" />
+            <TextField fx:id="carclassField" layoutX="111.0" layoutY="151.0" prefHeight="24.0" prefWidth="191.0" promptText="Введіть клас комфорту" />
+            <TextField fx:id="carnumField" layoutX="111.0" layoutY="117.0" prefHeight="24.0" prefWidth="192.0" promptText="Введіть номер" />
+            <Button fx:id="submitCarbtn" layoutX="111.0" layoutY="225.0" mnemonicParsing="false" onAction="#submitCarbtnClicked" prefHeight="37.0" prefWidth="192.0" text="Додати вагон" />
+            <Button layoutX="46.0" layoutY="48.0" mnemonicParsing="false" onAction="#oncancelCarClicked" prefHeight="24.0" prefWidth="37.0" text="&lt;-" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="passMenu" layoutX="162.0" layoutY="1.0" prefHeight="400.0" prefWidth="438.0" visible="false">
+         <children>
+            <Label layoutX="146.0" layoutY="13.0" prefHeight="32.0" prefWidth="145.0" text="Car Menu">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <TableView fx:id="passTable" layoutX="28.0" layoutY="130.0" prefHeight="256.0" prefWidth="395.0">
+               <columns>
+                  <TableColumn fx:id="pseatcol" prefWidth="47.90470886230469" text="#" />
+                  <TableColumn fx:id="pnamecol" prefWidth="242.13665771484375" text="Name" />
+                  <TableColumn fx:id="pluggcol" prefWidth="105.39047241210938" text="Luggage in Kg" />
+               </columns>
+            </TableView>
+            <Button layoutX="28.0" layoutY="58.0" mnemonicParsing="false" onAction="#onbtnAddPassClicked" prefHeight="24.0" prefWidth="143.0" text="Добавити пасажира" />
+            <Button fx:id="rmCarbtn1" layoutX="28.0" layoutY="94.0" mnemonicParsing="false" onAction="#onbtnRmPassClicked" prefHeight="24.0" prefWidth="143.0" text="Видалити пасажира" />
+            <Button layoutX="28.0" layoutY="17.0" mnemonicParsing="false" onAction="#onbtnPassBackClicked" prefHeight="24.0" prefWidth="37.0" text="&lt;-" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addPass" layoutX="162.0" layoutY="1.0" prefHeight="400.0" prefWidth="438.0">
+         <children>
+            <TextField fx:id="passLugField" layoutX="112.0" layoutY="187.0" prefHeight="24.0" prefWidth="192.0" promptText="Введіть кількість багажу в кг" />
+            <TextField fx:id="passNameField" layoutX="112.0" layoutY="151.0" prefHeight="24.0" prefWidth="191.0" promptText="Введіть ім'я" />
+            <TextField fx:id="passSeatField" layoutX="112.0" layoutY="117.0" prefHeight="24.0" prefWidth="192.0" promptText="Введіть сидіння" />
+            <Button layoutX="112.0" layoutY="225.0" mnemonicParsing="false" onAction="#submitPassbtnClicked" prefHeight="37.0" prefWidth="192.0" text="Додати пасажира" />
+            <Button layoutX="47.0" layoutY="48.0" mnemonicParsing="false" onAction="#oncancelPassClicked" prefHeight="24.0" prefWidth="37.0" text="&lt;-" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
